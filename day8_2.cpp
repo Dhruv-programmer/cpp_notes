@@ -1,0 +1,44 @@
+// Destructor in c++
+// A destructor is a type of function which is called when the object is destroyed.
+// Destructor never takes an argument nor does it return any value
+#include <iostream>
+using namespace std;
+
+int count = 0;
+
+class num
+{
+public:
+    num()
+    {
+        count++;
+        cout << "This is the time when constructor is called for object number " << count << endl;
+    }
+
+    ~num()
+    {
+        cout << "This is the time when my destructor is called for object number " << count << endl;
+        count--;
+    }
+};
+int main()
+{
+    cout << "We are inside our main function" << endl;
+    cout << "Creating first object n1" << endl;
+    num n1;
+    {
+        cout << "Entering this block" << endl;
+        cout << "Creating two more objects" << endl;
+        num n2, n3;
+        cout << "Exiting this block" << endl;
+    }
+    cout << "Back to main" << endl;
+    return 0;
+}
+
+// 1st object “n1” is created of the “num” data type.
+// The main thing to note here is that when the object “n1” is created the constructor will run.
+// 2nd inside the block two objects “n2” and “n3” are created of the “num” data type.
+// The main things to note here are that when the objects “n2” and “n3” are created the
+// constructor will run for both objects and when the block ends the destructor will run for both objects “n2” and “n3”.
+// 3rd when the program ends the destructor for the object “n1” will run.
